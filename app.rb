@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'pry'
 
 get '/' do
   erb :index
@@ -16,4 +17,21 @@ get '/dog/name' do
   @last_name = params["last_name"]
   erb :dog
 end
+
+
+# asign params["name"] from a post request
+name = ""
+
+get '/bird' do
+  @name = name
+  erb :bird
+end
+
+post '/bird' do
+  name = params["name"]
+  redirect '/bird'
+end
+
+
+
 
